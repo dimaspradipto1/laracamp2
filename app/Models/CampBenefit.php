@@ -10,4 +10,7 @@ class CampBenefit extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    
+    
 }

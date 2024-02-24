@@ -14,8 +14,11 @@ return new class extends Migration
         Schema::create('camp_benefits', function (Blueprint $table) {
             $table->id();
             $table->foreignId('camp_id')->constrained();
+            // $table->unsignedBigInteger('camp_id');
+            // $table->foreign('camp_id')->references('id')->on('camps');
             $table->string('name');
             $table->timestamps();
+
         });
     }
 
