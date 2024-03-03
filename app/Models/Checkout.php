@@ -25,4 +25,9 @@ class Checkout extends Model
     {
         $this->attributes['expired'] = date('Y-m-d', strtotime($value));
     }
+
+    public function Camp()
+    {
+        return $this->belongsTo(Camp::class);
+    }
 }
