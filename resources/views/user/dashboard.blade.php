@@ -14,10 +14,12 @@
       </div>
     </div>
     <div class="row my-5">
+      @include('components.alert')
+      
       <table class="table">
         <tbody>
-           @forelse ($checkout as  $checkout)
-           <tr class="align-middle">
+          @forelse ($checkout as $checkout)
+          <tr class="align-middle">
             <td width="18%">
               <img src="{{ asset('/assets/images/item_bootcamp.png') }}" height="120" alt="">
             </td>
@@ -26,30 +28,31 @@
                 <strong>{{ $checkout->Camp->title }}</strong>
               </p>
               <p>
-               {{ $checkout->created_at->format('M d, Y') }}
+                {{ $checkout->created_at->format('M d, Y') }}
               </p>
             </td>
             <td>
               <strong>${{ $checkout->Camp->price }}</strong>
             </td>
             <td>
-             @if ($checkout->is_paid)
-             <strong class="text-success">Waiting for Payment</strong>
-             @else
-             <strong>Waiting for Payment</strong>
-             @endif
+              @if ($checkout->is_paid)
+              <strong class="text-success">Waiting for Payment</strong>
+              @else
+              <strong>Waiting for Payment</strong>
+              @endif
             </td>
             <td>
-              <a href="https://wa.me//08xxxxxxxxxx?text=saya ingin bertanya tentang kelas {{ $checkout->Camp->title }}" class="btn btn-primary">
+              <a href="https://wa.me//08xxxxxxxxxx?text=saya ingin bertanya tentang kelas {{ $checkout->Camp->title }}"
+                class="btn btn-primary">
                 Contact Support
               </a>
             </td>
           </tr>
-           @empty
-             <td colspan="5">
-              <h3>No Data</h3>
-             </td>
-           @endforelse
+          @empty
+          <td colspan="5">
+            <h3>No Data</h3>
+          </td>
+          @endforelse
         </tbody>
       </table>
     </div>
